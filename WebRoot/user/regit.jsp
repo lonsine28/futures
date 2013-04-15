@@ -20,9 +20,7 @@
 						<td>
 							<input name="user.email" type="text" id="txtEmail" class="text_input"/>
 							<div class="text_left" id="emailValidMsg">
-								<p>
-									请填写有效的Email地址，在下一步中您将用此邮箱接收验证邮件。
-								</p>
+							
 								    <img src="" alt="" id="emailImage"/>
 									<span id="email.info" style="color:red"></span>
 							</div>
@@ -93,11 +91,20 @@
 							</div>
 						</td>
 					</tr>
+					<tr>
+					  <td>
+					  <div>  
+					     <input type="checkbox" id="ufo" /><a href="">UFO7.0用户协议</a>
+					  </div>
+					  </td>
+					</tr>
 				</table>
 
 				<div >
 
 					<input id="btnClientRegister" name="submit"  type="submit" value="注 册"/>
+					&nbsp;&nbsp;
+					<input id="btnReset" name="" type="button" value="重置">
 				</div>
 			</form>
 		</div>

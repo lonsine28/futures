@@ -18,17 +18,51 @@ public class User  implements java.io.Serializable {
      private String email;
      private Integer type;
      private Integer level;
-
-
-    // Constructors
-
-    /** default constructor */
-    public User() {
-    }
-
-
+     private Integer state;
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getPwd() {
+		return pwd;
+	}
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public Integer getType() {
+		return type;
+	}
+	public void setType(Integer type) {
+		this.type = type;
+	}
+	public Integer getLevel() {
+		return level;
+	}
+	public void setLevel(Integer level) {
+		this.level = level;
+	}
+	public Integer getState() {
+		return state;
+	}
+	public void setState(Integer state) {
+		this.state = state;
+	}
 	public User(Integer id, String name, String pwd, String email,
-			Integer type, Integer level) {
+			Integer type, Integer level, Integer state) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -36,116 +70,14 @@ public class User  implements java.io.Serializable {
 		this.email = email;
 		this.type = type;
 		this.level = level;
+		this.state = state;
+	}
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
-
-	/**
-	 * @return the id
-	 */
-	public Integer getId() {
-		return id;
-	}
-
-
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
-
-
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
-	/**
-	 * @return the pwd
-	 */
-	public String getPwd() {
-		return pwd;
-	}
-
-
-	/**
-	 * @param pwd the pwd to set
-	 */
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
-	}
-
-
-	/**
-	 * @return the email
-	 */
-	public String getEmail() {
-		return email;
-	}
-
-
-	/**
-	 * @param email the email to set
-	 */
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-
-	/**
-	 * @return the type
-	 */
-	public Integer getType() {
-		return type;
-	}
-
-
-	/**
-	 * @param type the type to set
-	 */
-	public void setType(Integer type) {
-		this.type = type;
-	}
-
-
-	/**
-	 * @return the level
-	 */
-	public Integer getLevel() {
-		return level;
-	}
-
-
-	/**
-	 * @param level the level to set
-	 */
-	public void setLevel(Integer level) {
-		this.level = level;
-	}
-
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", pwd=" + pwd
-				+ ", email=" + email + ", type=" + type + ", level=" + level
-				+ "]";
-	}
-
-    
+   
 
 
 

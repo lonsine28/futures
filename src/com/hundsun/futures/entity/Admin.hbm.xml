@@ -19,5 +19,8 @@
         <property name="level" type="integer">
             <column name="a_level" not-null="true" />
         </property>
+        <property name="state" type="integer">
+            <column name="a_state" not-null="true" />
+        </property>
     </class>
 </hibernate-mapping>

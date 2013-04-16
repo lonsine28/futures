@@ -1,6 +1,8 @@
 package com.hundsun.futures.dao.impl;
 
 
+import java.util.List;
+
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import com.hundsun.futures.dao.UserDao;
@@ -13,10 +15,12 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 		try
 		{
 			this.getHibernateTemplate().save(user);
+			this.getHibernateTemplate().flush();
 			return true;
 		}
 		catch(Exception e)
 		{
+			e.printStackTrace();
 			return false;
 		}
 		
@@ -33,10 +37,12 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 	}
 
 	public User findUserByEmail(String email) {
-		String hql="from User u where u.emial=?";
-		User user=(User)this.getHibernateTemplate().find(hql,new Object[]{email}).get(0);
-		
-		return user;
+		String hql="from User u where u.email=?";
+		List<User> list=this.getHibernateTemplate().find(hql,new Object[]{email});
+		if(list.size()==0){
+			return null;
+		}
+		return list.get(0);
 	}
 
 }

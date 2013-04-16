@@ -2,7 +2,7 @@
 <html>
 <head>
 <script type="text/javascript" src="../js/jquery-1.4.3.js"></script>
-<script type="text/javascript" src="../js/verifycode.js" charset="gbk"></script>
+ <script type="text/javascript" src="../js/checkregist.js" charset="gbk"></script> 
 </head>
 
 <body>
@@ -10,7 +10,7 @@
 			<form name="ctl00" method="post"
 					 action="register.action" id="f">
 				<h2>
-					以下均为必填项
+					用户注册
 				</h2>
 				<table class="tab_login" >
 					<tr>
@@ -20,9 +20,7 @@
 						<td>
 							<input name="user.email" type="text" id="txtEmail" class="text_input"/>
 							<div class="text_left" id="emailValidMsg">
-								<p>
-									请填写有效的Email地址，在下一步中您将用此邮箱接收验证邮件。
-								</p>
+							
 								    <img src="" alt="" id="emailImage"/>
 									<span id="email.info" style="color:red"></span>
 							</div>
@@ -33,16 +31,17 @@
 							设置您的昵称：
 						</td>
 						<td>
-							<input name="user.nickname" type="text" id="txtNickName" class="text_input"/>
+							<input name="user.name" type="text" id="txtNickName" class="text_input"/>
 							<div class="text_left" id="nickNameValidMsg">
+							 <img src="" alt="" id="nicknameImage"/>
+								<span id="name.info" style="color:red"></span>
 								<p>
 									您的昵称可以由小写英文字母、中文、数字组成，
 								</p>
 								<p>
 									长度4－20个字符，一个汉字为两个字符。
 								</p>
-								 <img src="" alt="" id="nicknameImage"/>
-								<span id="name.info" style="color:red"></span>
+								
 							</div>
 						</td>
 					</tr>
@@ -51,24 +50,25 @@
 							设置密码：
 						</td>
 						<td>
-							<input name="user.password" type="password" id="txtPassword"
-								class="text_input"/>
+							<input name="user.pwd" type="password" id="txtPassword"
+								/>
 							<div class="text_left" id="passwordValidMsg">
+							<img src="" alt="" id="pwdInfoimage"/>
+								<span id="password.info" style="color:red"></span>
 								<p>
 									您的密码可以由大小写英文字母、数字组成，长度6位。
 								</p>
-								<img src="" alt="" id="pwdInfoimage"/>
-								<span id="password.info" style="color:red"></span>
+								
 							</div>
 						</td>
 					</tr>
 					<tr>
-						<td valign="top" class="w1">
+						<td valign="top" >
 							再次输入您设置的密码：
 						</td>
 						<td>
 							<input name="password1" type="password" id="txtRepeatPass"
-								class="text_input" />
+								 />
 							<div class="text_left" id="repeatPassValidMsg">
 							<img src="" alt="" id="password1Image"/>
 							<span id="password1.info" style="color:red"></span>
@@ -93,11 +93,20 @@
 							</div>
 						</td>
 					</tr>
+					<tr>
+					  <td>
+					  <div>  
+					     <input type="checkbox" id="ufo" /><a href="">UFO7.0用户协议</a>
+					  </div>
+					  </td>
+					</tr>
 				</table>
 
 				<div >
 
 					<input id="btnClientRegister" name="submit"  type="submit" value="注 册"/>
+					&nbsp;&nbsp;
+					<input id="btnReset" name="" type="button" value="重置">
 				</div>
 			</form>
 		</div>

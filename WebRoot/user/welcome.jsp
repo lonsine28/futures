@@ -5,7 +5,8 @@
   
   <body>
   <h1>
-  welcome,${user.emial}
+  welcome,${user.name}
   </h1>
+  [&nbsp;<a href="/futures/user/outLogin.action" >退出</a>&nbsp;]
   </body>
 </html>

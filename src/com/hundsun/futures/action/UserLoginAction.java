@@ -4,9 +4,9 @@ import com.hundsun.futures.entity.User;
 import com.hundsun.futures.service.UserService;
 
 public class UserLoginAction extends BaseAction {
-	private User user;//这个也已经注入了
+	private User user;
 	private UserService userService;
-
+    private String failCode;
 
 	public User getUser() {
 		return user;
@@ -22,13 +22,23 @@ public class UserLoginAction extends BaseAction {
 	
 	public String login() {
 		System.out.println(user.getName());
-//		System.out.println("界面接受：" + user.getEmial() + "  " + user.getPwd());
-//		user = userService.login(user);
-//		System.out.println("后台处理：" + user.getEmial() + "  " + user.getPwd());
-//		if (user.getUno() != 0) {
-//			return "success";
-//		}
-		return "fail";
+		System.out.println("界面接受：" + user.getEmail() + "  " + user.getPwd());
+		user = userService.login(user);
+		if(user==null){
+			failCode="用户名或密码错误！";
+			return "fail";
+		}else{
+			session.put(user.getId()+"", user);
+			return "success";
+		}
+	}
+
+	public String getFailCode() {
+		return failCode;
+	}
+
+	public void setFailCode(String failCode) {
+		this.failCode = failCode;
 	}
 
 

@@ -43,7 +43,8 @@ public class UserServiceImpl implements UserService {
 			System.out.println("加密后的密码："+MD5Util.encode(password));
 			user.setPwd(MD5Util.encode(password));
 			user.setType(1);//表示网站注册的用户
-			user.setLevel(1);//表示网站注册会员
+			user.setLevel(1);//表示网站注册
+			user.setState(1);//表示正常状态
 			isok=userDao.addUser(user);
 			return isok;
 		} catch (Exception e) {

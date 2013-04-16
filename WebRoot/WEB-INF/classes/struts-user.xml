@@ -4,20 +4,22 @@
     "http://struts.apache.org/dtds/struts-2.1.7.dtd">
 
 <struts>
-<package name="user" extends="futures-default" namespace="/user">
-<action name="login" class="com.hundsun.futures.action.UserLoginAction" method="login">
-<result name="success" type="dispatcher">/user/welcome.jsp</result>
-<result name="fail" type="dispatcher">/index.jsp</result>
-</action>
-  <!-- 验证码     stream-->
-	<action name="imageCode" class="com.hundsun.futures.action.ImageAction">
-	  <result name="success" type="stream">
-	  <param name="inputName">imageStream</param>
-	  </result>
-	 </action>
-	 <action name="validate" class="com.hundsun.futures.action.ImageValidateAction">
-	  <result name="success" type="json"></result>
-	 </action>
-</package>
+	<package name="user" extends="futures-default" namespace="/user">
+		<action name="user" class="com.hundsun.futures.action.UserLoginAction"
+			method="login">
+			<result name="success" type="dispatcher">/console/ColumnManagement/columnIndex.jsp
+			</result>
+			<result name="fail" type="dispatcher">/index.jsp</result>
+		</action>
+		<!-- 验证码 stream -->
+		<action name="imageCode" class="com.hundsun.futures.action.ImageAction">
+			<result name="success" type="stream">
+				<param name="inputName">imageStream</param>
+			</result>
+		</action>
+		<action name="validate" class="com.hundsun.futures.action.ImageValidateAction">
+			<result name="success" type="json"></result>
+		</action>
+	</package>
 
 </struts>

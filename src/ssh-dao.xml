@@ -14,6 +14,10 @@
   <property name="sessionFactory" ref="mysessionFactory">
   </property>
 </bean>
+<bean id="columnDao" class="com.hundsun.futures.dao.impl.ColumnDaoImpl" scope="prototype">
+  <property name="sessionFactory" ref="mysessionFactory">
+  </property>
+</bean>
 
 
 

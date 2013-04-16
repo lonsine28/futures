@@ -13,4 +13,9 @@
   <property name="userDao" ref="userDao"> 
  </property>
 </bean>
+
+<bean id="columnService" class="com.hundsun.futures.service.impl.ColumnServiceImpl">
+  <property name="columnDao" ref="columnDao"> 
+ </property>
+</bean> 
 </beans>									

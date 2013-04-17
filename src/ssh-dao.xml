@@ -18,7 +18,10 @@
   <property name="sessionFactory" ref="mysessionFactory">
   </property>
 </bean>
-
+<bean id="newsDao" class="com.hundsun.futures.dao.impl.NewsDaoImpl" scope="prototype">
+  <property name="sessionFactory" ref="mysessionFactory">
+  </property>
+</bean>
 
 
 </beans>									

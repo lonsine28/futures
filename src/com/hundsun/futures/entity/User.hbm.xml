@@ -28,5 +28,11 @@
         <property name="state" type="integer">
             <column name="u_state" not-null="true" />
         </property>
+        <property name="uuid" type="string">
+            <column name="u_uuid" not-null="false" />
+        </property>
+        <property name="active" type="string">
+            <column name="u_active" not-null="true" />
+        </property>
     </class>
 </hibernate-mapping>

@@ -7,13 +7,14 @@
 	<package name="user" extends="futures-default" namespace="/user">
 		<!-- 注册 -->
 		<action name="register" class="com.hundsun.futures.action.UserRegisterAction">
-			<result name="success">/user/login.jsp</result>
+			<result name="success">/user/verify_form.jsp</result>
 		</action>
 		<!-- 登录 -->
 		<action name="login" class="com.hundsun.futures.action.UserLoginAction"
 			method="login">
+			<result name="pwderror">/user/login.jsp</result>
+			<result name="verifyEmailError">/user/verify_form.jsp</result>
 			<result name="success" type="dispatcher">/user/welcome.jsp</result>
-			<result name="fail" type="dispatcher">/user/login.jsp</result>
 		</action>
 		<!-- 退出登录 -->
 		<action name="outLogin" class="com.hundsun.futures.action.UserOutLoginAction">
@@ -34,6 +35,12 @@
 				<param name="root">ok</param>
 			</result>
 		</action>
+		<!-- 第二次邮箱验证 -->
+		<action name="checkEmail" class="com.hundsun.futures.action.VerifyEmailAction">
+			<result name="success">/user/login.jsp</result>
+			<result name="verifyCodeEmail">/user/verify_form.jsp</result>
+		</action>
+		
 	</package>
 
 </struts>

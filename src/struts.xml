@@ -5,6 +5,7 @@
 <struts>
   <include file="struts-user.xml"></include>
   <include file="struts-column.xml"></include>
+  <include file="struts-usermanagement.xml"></include>
   <package name="futures-default" extends="json-default">
   <interceptors>
        <interceptor name="transaction" class="com.hundsun.futures.interceptor.TransactionInterceptor"></interceptor>

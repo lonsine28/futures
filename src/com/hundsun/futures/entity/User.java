@@ -19,6 +19,8 @@ public class User  implements java.io.Serializable {
      private Integer type;
      private Integer level;
      private Integer state;
+     private String uuid;
+	private String active;
 	public Integer getId() {
 		return id;
 	}
@@ -61,8 +63,25 @@ public class User  implements java.io.Serializable {
 	public void setState(Integer state) {
 		this.state = state;
 	}
+	public String getUuid() {
+		return uuid;
+	}
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
+	public String getActive() {
+		return active;
+	}
+	public void setActive(String active) {
+		this.active = active;
+	}
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public User(Integer id, String name, String pwd, String email,
-			Integer type, Integer level, Integer state) {
+			Integer type, Integer level, Integer state, String uuid,
+			String active) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -71,18 +90,15 @@ public class User  implements java.io.Serializable {
 		this.type = type;
 		this.level = level;
 		this.state = state;
+		this.uuid = uuid;
+		this.active = active;
 	}
-	public User() {
-		super();
-		// TODO Auto-generated constructor stub
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", pwd=" + pwd
+				+ ", email=" + email + ", type=" + type + ", level=" + level
+				+ ", state=" + state + ", uuid=" + uuid + ", active=" + active
+				+ "]";
 	}
-
-   
-
-
-
-
-
-
-
+	
 }

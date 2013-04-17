@@ -23,13 +23,21 @@ public class UserLoginAction extends BaseAction {
 	public String login() {
 		System.out.println(user.getName());
 		System.out.println("界面接受：" + user.getEmail() + "  " + user.getPwd());
-		user = userService.login(user);
-		if(user==null){
-			failCode="用户名或密码错误！";
-			return "fail";
-		}else{
-			session.put(user.getId()+"", user);
+		String password=user.getPwd();
+		user=userService.findUserByEmail(user.getEmail());
+		String checkCode = userService.login(user,password);
+		if(checkCode.equals("verifyEmailError")){
+			return "verifyEmailError";
+		}else if(checkCode.equals("pwderror")){
+			failCode="用户名或密码错误!";
+			return "pwderror";
+		}else if(checkCode.equals("success")){
+		//4.将user写入session
+		   session.put("user", user);
+			//5.跳转到/main/main.jsp
 			return "success";
+		}else{
+			return "error";
 		}
 	}
 

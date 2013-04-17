@@ -28,6 +28,9 @@ public class UserLoginAction extends BaseAction {
 		String checkCode = userService.login(user,password);
 		if(checkCode.equals("verifyEmailError")){
 			return "verifyEmailError";
+		}else if(checkCode.equals("cancel")){
+			failCode="本账户已经注销!";
+			return "pwderror";
 		}else if(checkCode.equals("pwderror")){
 			failCode="用户名或密码错误!";
 			return "pwderror";

@@ -25,13 +25,17 @@ public class UserServiceImpl implements UserService {
 			return "pwderror";
 		}
 		
-			if(user.getActive().equals("0")){
-				return "verifyEmailError";
+			if(user.getState()==0){
+				return "cancel";
 			}else{
-				if (user.getPwd().equals(password)) {
-					return "success";
-				} else {
-					return "pwderror";
+				if(user.getActive().equals("0")){
+					return "verifyEmailError";
+				}else{
+					if (user.getPwd().equals(password)) {
+						return "success";
+					} else {
+						return "pwderror";
+					}
 				}
 			}
 		

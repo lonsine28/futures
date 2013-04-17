@@ -25,7 +25,7 @@ public class CharsetFilter extends HttpServlet implements Filter {
 			request.setCharacterEncoding(characterEncoding);
 			response.setCharacterEncoding(characterEncoding);
 		}
-		response.getWriter().println(request.getParameter("column"+"it is a test"));
+		//response.getWriter().println(request.getParameter("column"+"it is a test"));
 		chain.doFilter(request, response);		//执行下一个Filter
 	}
 	public void destroy(){

@@ -2,7 +2,7 @@
 <html>
   <head>
   <script type="text/javascript" src="../js/jquery-1.4.3.js"></script>
-	    <script type="text/javascript" src="../js/verifyform.js" charset="gbk"></script> 
+	    <script type="text/javascript" src="../js/verifyform.js" charset="gbk" ></script> 
   </head>
   
   <body>

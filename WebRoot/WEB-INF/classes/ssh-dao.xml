@@ -22,6 +22,9 @@
   <property name="sessionFactory" ref="mysessionFactory">
   </property>
 </bean>
-
+<bean id="userMsgDao" class="com.hundsun.futures.dao.impl.UserMsgDaoImpl" scope="prototype">
+  <property name="sessionFactory" ref="mysessionFactory">
+  </property>
+</bean>
 
 </beans>									

@@ -5,7 +5,13 @@
 
 <struts>
 	<package name="console" extends="futures-default" namespace="/console">
-
+   <action name="usermsg_*" class="com.hundsun.futures.action.UserManagermentAction" method="{1}">
+   <result name="SUCCESSADMIN" >/console/usermanagement/adminmsg.jsp</result>
+   <result name="SUCCESSUSER" >/console/usermanagement/usermsg.jsp</result>
+   <result name="updateUser">/console/usermanagement/updateuser.jsp</result>
+   <result name="SUCCESSUPDATEUSER" type="chain">usermsg_findAllUser</result>
+   <result name="SUCCESSDELUSER" type="chain">usermsg_findAllUser</result>
+   </action>
 		
 	</package>
 

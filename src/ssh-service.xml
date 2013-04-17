@@ -23,6 +23,9 @@
   <property name="newsDao" ref="newsDao"> 
  </property>
 </bean> 
-
+<bean id="userMsgService" class="com.hundsun.futures.service.impl.UserMsgServiceImpl">
+  <property name="userMsgDao" ref="userMsgDao"> 
+ </property>
+</bean>
 
 </beans>									

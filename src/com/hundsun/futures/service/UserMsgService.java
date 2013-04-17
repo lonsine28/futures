@@ -1,13 +1,13 @@
-package com.hundsun.futures.dao;
+package com.hundsun.futures.service;
 
 import java.util.List;
 
 import com.hundsun.futures.entity.Admin;
 import com.hundsun.futures.entity.User;
 
-public interface UserMsgDao {
-  public List<User> findAllUser(int page,int pageSize);
-  public List<Admin> findAllAdmin(int page,int pageSize);
+public interface UserMsgService {
+  public List<Admin> findAdmin(int page,int pageSize);
+  public List<User> findUser(int page,int pageSize);
 public boolean updateUserById(int id);
 public boolean updateUserByUser(User user);
 }

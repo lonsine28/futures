@@ -15,23 +15,23 @@ import com.hundsun.futures.service.ColumnService;
 public class ColumnAction extends BaseAction{
 	private Column myCol;
 	private ColumnService columnService;
-	private Integer id;//这里需要一个setid方法来获得url传过来的id参数，否则无法获得啊。
-	private String column;
-	public void setId(Integer id)
-	{
-		this.id=id;
-	}
-	public void setColumn(String column)
-	{
-		this.column=column;
-	}
-	
+//	private Integer id;//这里需要一个setid方法来获得url传过来的id参数，否则无法获得啊。
+//	private String column;
+//	public void setId(Integer id)
+//	{
+//		this.id=id;
+//	}
+//	public void setColumn(String column)
+//	{
+//		this.column=column;
+//	}
+//	
 	/**
 	 * @return the column
 	 */
-	public Column getMycol() {
-		return myCol;
-	}
+//	public Column getMycol() {
+//		return myCol;
+//	}
 	/**
 	 * @param column the column to set
 	 */
@@ -59,29 +59,29 @@ public class ColumnAction extends BaseAction{
 	}
 	public String upd()
 	{
-		Column col=new Column();
-		col.setColumn(this.column);
-		col.setId(this.id);
-		columnService.updateColumn(col);
+//		Column col=new Column();
+//		col.setColumn(this.column);
+//		col.setId(this.id);
+		columnService.updateColumn(this.myCol);
 		return "upd";
 	}
-	public String del()
-	{
-		//这个也可以从注入的user那儿的getId方法获得传过来的id值。
-		columnService.deleteColumn(this.id);
-		return "del";
-	}
-	public String search()
-	{
-		Column col=columnService.queryById(id);
-		httpRequest.setAttribute("col", col);
-		return "edit";
-	}
+//	public String del()
+//	{
+//		//这个也可以从注入的user那儿的getId方法获得传过来的id值。
+//		columnService.deleteColumn(this.id);
+//		return "del";
+//	}
+//	public String search()
+//	{
+//		Column col=columnService.queryById(id);
+//		httpRequest.setAttribute("col", col);
+//		return "edit";
+//	}
 	public String add()
 	{
-		Column col=new Column();
-		col.setColumn(this.column);
-		columnService.addColumn(col);
+//		Column col=new Column();
+//		col.setColumn(this.column);
+		columnService.addColumn(this.myCol);
 		return "add";
 	}
 	

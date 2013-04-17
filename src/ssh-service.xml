@@ -18,4 +18,11 @@
   <property name="columnDao" ref="columnDao"> 
  </property>
 </bean> 
+
+<bean id="newsService" class="com.hundsun.futures.service.impl.NewsServiceImpl">
+  <property name="newsDao" ref="newsDao"> 
+ </property>
+</bean> 
+
+
 </beans>									

@@ -23,6 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
     <ul>
        <li><a href="<%=path%>/column/column_list.action">栏目管理</a></li>
+       <li><a href="<%=path%>/news/news_list.action">新闻管理</a></li>
        <li>用户管理</li>
        <li>问题类型管理</li>
     </ul>

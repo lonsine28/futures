@@ -1,0 +1,47 @@
+﻿Merge branch 'master' of https://github.com/lonsine28/futures
+
+Conflicts:
+	WebRoot/WEB-INF/classes/struts-user.xml
+	src/struts-user.xml
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 3 and 3 different commits each, respectively.
+#
+# All conflicts fixed but you are still merging.
+#   (use "git commit" to conclude merge)
+#
+# Changes to be committed:
+#
+#	modified:   WebRoot/WEB-INF/classes/com/hundsun/futures/action/UserLoginAction.class
+#	new file:   WebRoot/WEB-INF/classes/com/hundsun/futures/action/UserOutLoginAction.class
+#	new file:   WebRoot/WEB-INF/classes/com/hundsun/futures/action/UserRegisterAction.class
+#	new file:   WebRoot/WEB-INF/classes/com/hundsun/futures/action/ValidEmailAction.class
+#	modified:   WebRoot/WEB-INF/classes/com/hundsun/futures/dao/impl/UserDaoImpl.class
+#	modified:   WebRoot/WEB-INF/classes/com/hundsun/futures/service/UserService.class
+#	modified:   WebRoot/WEB-INF/classes/com/hundsun/futures/service/impl/UserServiceImpl.class
+#	modified:   WebRoot/WEB-INF/classes/struts-user.xml
+#	new file:   WebRoot/js/checklogin.js
+#	modified:   WebRoot/js/checkregist.js
+#	deleted:    WebRoot/js/verifycode.js
+#	modified:   WebRoot/user/login.jsp
+#	modified:   WebRoot/user/regit.jsp
+#	modified:   WebRoot/user/welcome.jsp
+#	modified:   src/com/hundsun/futures/action/UserLoginAction.java
+#	new file:   src/com/hundsun/futures/action/UserOutLoginAction.java
+#	new file:   src/com/hundsun/futures/action/UserRegisterAction.java
+#	new file:   src/com/hundsun/futures/action/ValidEmailAction.java
+#	modified:   src/com/hundsun/futures/dao/impl/UserDaoImpl.java
+#	modified:   src/com/hundsun/futures/service/UserService.java
+#	modified:   src/com/hundsun/futures/service/impl/UserServiceImpl.java
+#	modified:   src/struts-user.xml
+#
+

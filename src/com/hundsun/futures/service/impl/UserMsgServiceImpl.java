@@ -6,6 +6,7 @@ import com.hundsun.futures.dao.UserMsgDao;
 import com.hundsun.futures.entity.Admin;
 import com.hundsun.futures.entity.User;
 import com.hundsun.futures.service.UserMsgService;
+import com.hundsun.futures.util.MD5Util;
 
 public class UserMsgServiceImpl implements UserMsgService {
     private UserMsgDao userMsgDao;
@@ -30,6 +31,30 @@ public class UserMsgServiceImpl implements UserMsgService {
 	public boolean updateUserByUser(User user) {
 		// TODO Auto-generated method stub
 		return userMsgDao.updateUserByUser(user);
+	}
+
+	public boolean addAdmin(Admin admin) {
+	   try {
+		admin.setPwd(MD5Util.encode(admin.getPwd()));
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		return false;
+	}
+		return userMsgDao.addAdmin(admin);
+	}
+
+	public boolean delAdminById(int id) {
+		
+		return userMsgDao.delAdminById(id);
+	}
+
+	public boolean updateAdminByAdmin(Admin admin) {
+		return userMsgDao.updateAdminByAdmin(admin);
+	}
+
+	public int findTotalAdmin(int pageSize) {
+		return userMsgDao.findTotalAdmin(pageSize);
 	}
 
 }

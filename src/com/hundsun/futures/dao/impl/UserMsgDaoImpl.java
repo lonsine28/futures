@@ -1,10 +1,12 @@
 package com.hundsun.futures.dao.impl;
 
+import java.math.BigInteger;
 import java.sql.SQLException;
 import java.util.List;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
@@ -76,6 +78,64 @@ return (List<Admin>) this.getHibernateTemplate().executeFind(new HibernateCallba
 		}
 		
 		
+	}
+
+	public boolean addAdmin(Admin admin) {
+		try {
+			this.getHibernateTemplate().save(admin);
+			this.getHibernateTemplate().flush();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	public boolean delAdminById(int id) {
+		String hql="from Admin where id=?";
+		List<Admin> admins=this.getHibernateTemplate().find(hql, new Object[]{id});
+		if(!admins.isEmpty()){
+			admins.get(0).setState(0);
+			this.getHibernateTemplate().update(admins.get(0));
+			this.getHibernateTemplate().flush();
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public boolean updateAdminByAdmin(Admin admin) {
+		String hql="from Admin where id=?";
+		List<Admin> admins=this.getHibernateTemplate().find(hql, new Object[]{admin.getId()});
+		if(!admins.isEmpty()){
+			admins.get(0).setName(admin.getName());
+			admins.get(0).setLevel(admin.getLevel());
+			admins.get(0).setState(admin.getState());
+			this.getHibernateTemplate().update(admins.get(0));
+			this.getHibernateTemplate().flush();
+			return true;
+		}else{
+		   return false;
+		}
+	}
+
+	public int findTotalAdmin(int pageSize) {
+		 List<BigInteger> list=(List)getHibernateTemplate().execute(new HibernateCallback() {
+				
+				public Object doInHibernate(Session session) throws HibernateException,
+						SQLException {
+					String sql="select count(*) from  f_admin";
+					SQLQuery  query=session.createSQLQuery(sql);
+					return query.list();
+				}
+			});
+	    int countsql=0;
+			int count=0;
+			if(!list.isEmpty()){
+				countsql=list.get(0).intValue();//将BigInteger转换成int类型
+			}
+			count=countsql%pageSize==0?countsql/pageSize:countsql/pageSize+1;
+			return count;
 	}
 
 }

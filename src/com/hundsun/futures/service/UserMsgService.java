@@ -10,4 +10,8 @@ public interface UserMsgService {
   public List<User> findUser(int page,int pageSize);
 public boolean updateUserById(int id);
 public boolean updateUserByUser(User user);
+public boolean addAdmin(Admin admin);
+public boolean delAdminById(int id);
+public boolean updateAdminByAdmin(Admin admin);
+public int findTotalAdmin(int pageSize);
 }

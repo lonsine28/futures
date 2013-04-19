@@ -39,7 +39,7 @@
          <td> <c:choose><c:when test="${user.state==0 }">不正常</c:when><c:otherwise>正常</c:otherwise></c:choose></td>
          <td><a href="usermsg_delUser.action?id=${user.id }">
          <input type="button" value="删除" /></a>  
-         <a href="usermsg_updateJSPUser?user.id=${user.id }&user.name=${user.name }&user.email=${user.email }&user.active=${user.active}&user.type=${user.type}&user.level=${user.level}&user.state=${user.state}"><input type="button" value="修改"/></a></td>
+         <a href="usermsg_updateJSPUser.action?user.id=${user.id }&user.name=${user.name }&user.email=${user.email }&user.active=${user.active}&user.type=${user.type}&user.level=${user.level}&user.state=${user.state}"><input type="button" value="修改"/></a></td>
          </tr>
            </c:forEach>
         </c:otherwise>

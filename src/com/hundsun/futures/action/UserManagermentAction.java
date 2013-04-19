@@ -1,5 +1,6 @@
 package com.hundsun.futures.action;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import com.hundsun.futures.entity.Admin;
@@ -11,29 +12,27 @@ public class UserManagermentAction extends BaseAction{
 	private List<Admin> listAdmin;
 	private List<User> listUser;
 	private int page=0;
-	private int pageSize=10;
+	private int pageSize=100;
 	private User user;
 	private int id;
+	private Admin admin;
+	private int total ;
    public String findAllAdmin(){
+	   total=userMsgService.findTotalAdmin(pageSize);
 	   listAdmin=userMsgService.findAdmin(page, pageSize);
 	   if(listAdmin==null){
 		   return "error";
 	   }
-	   System.out.println("   12  "+listAdmin);
 	   return "SUCCESSADMIN";
    }
    public String findAllUser(){
 	   listUser=userMsgService.findUser(page, pageSize);
-	   System.out.println("   13  "+listUser);
 	   if(listUser==null){
-		   System.out.println("查找为空了....");
 		   return "error";
 	   }
-	   System.out.println("   13  "+listUser);
 	   return "SUCCESSUSER";
    }
    public String delUser(){
-	   System.out.println("传进来id了.."+id);
 	   boolean isok=userMsgService.updateUserById(id);
 	   if(isok){
 		   return "SUCCESSDELUSER";
@@ -43,7 +42,6 @@ public class UserManagermentAction extends BaseAction{
 	   
    }
    public String updateUser(){
-	   System.out.println("传进来user了.."+user);
 	   boolean isok=userMsgService.updateUserByUser(user);
 	   if(isok){
 		   return "SUCCESSUPDATEUSER";
@@ -53,8 +51,51 @@ public class UserManagermentAction extends BaseAction{
 	 
    }
    public String updateJSPUser(){
-	   System.out.println("JSP页面的User："+user);
+	   try {
+		user.setName(new String(user.getName().getBytes("iso-8859-1"),"UTF-8"));
+	} catch (UnsupportedEncodingException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		return "error";
+	}
 	   return "updateUser";
+   }
+   public String delAdmin(){
+	   boolean isok=userMsgService.delAdminById(id);
+	   if(isok){
+		   return "SUCCESSDELADMIN";
+	   }else{
+		   return "error";
+	   }
+   }
+   public String updateJSPAdmin(){
+	   try {
+		admin.setName(new String(admin.getName().getBytes("iso-8859-1"),"UTF-8"));
+	} catch (UnsupportedEncodingException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		return "error";
+	}
+	   return "updateAdmin";
+   }
+   public String addJSPAdmin(){
+	   return "addAdmin";
+   }
+   public String addAdmin(){
+	   boolean isok=userMsgService.addAdmin(admin);
+	   if(isok){
+		   return "SUCCESSADDADMIN";
+	   }else{
+		   return "error";
+	   }
+   }
+   public String updateAdmin(){
+	   boolean isok=userMsgService.updateAdminByAdmin(admin);
+	   if(isok){
+		   return "SUCCESSUPDATEADMIN";
+	   }else{
+		   return "error";
+	   }
    }
 public void setUserMsgService(UserMsgService userMsgService) {
 	this.userMsgService = userMsgService;
@@ -82,6 +123,18 @@ public int getId() {
 }
 public void setId(int id) {
 	this.id = id;
+}
+public Admin getAdmin() {
+	return admin;
+}
+public void setAdmin(Admin admin) {
+	this.admin = admin;
+}
+public int getTotal() {
+	return total;
+}
+public void setTotal(int total) {
+	this.total = total;
 }
 
 

@@ -60,6 +60,11 @@ public class Admin  implements java.io.Serializable {
 		this.level = level;
 		this.state = state;
 	}
+	@Override
+	public String toString() {
+		return "Admin [id=" + id + ", name=" + name + ", pwd=" + pwd
+				+ ", level=" + level + ", state=" + state + "]";
+	}
 
    
 }
